@@ -3,25 +3,103 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --color-bg: #121212;
+  --color-fg: #fff;
+  --color-mg: #444;
+  --color-line: #a7a7a7;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html,
+body,
+#__next {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.logo {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding: 0px 13px;
+  border-radius: 2px;
+}
+
+.info {
+  background: none;
+  border: none;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px 12px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.guess-item {
+  border: 2px solid var(--color-mg);
+  padding: 8px;
+  height: 38px;
+  font-size: 14px;
+  display: flex;
+  flex-shrink: 0;
+  line-height: 24px;
+  -webkit-box-align: center;
+  align-items: center;
+  border-radius: 2px;
+}
+
+.timeline {
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.progress {
+  height: 100%;
+  width: 100%;
+  transform-origin: left top;
+  background-color: var(--color-mg);
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+#progress-bar {
+  background-color: var(--color-mg);
+  transform: scaleX(0.0625);
+}
+
+.guess-block {
+  width: 1px;
+  height: 100%;
+  background-color: var(--color-line);
+  position: absolute;
+  z-index: 1;
+}
+
+#first-guess {
+  left: 6.25%;
+}
+#second-guess {
+  left: 12.5%;
+}
+#third-guess {
+  left: 25%;
+}
+#fourth-guess {
+  left: 43.75%;
+}
+#fifth-guess {
+  left: 68.75%;
+}
+
+#sixth-guess {
+  left: 99.9%;
 }
